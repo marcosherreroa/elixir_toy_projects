@@ -1,0 +1,25 @@
+<nav class="light-blue">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">
+      Discussions
+    </a>
+    <div class="right">
+      <%= if @conn.assigns[:user] do %>
+        <.link navigate={~p"/auth/signout"}>
+          Sign Out
+        </.link>
+      <% else %>
+        <.link navigate={~p"/auth/github"}>
+          Sign in with GitHub
+        </.link>
+      <% end %>
+      
+    </div>
+  </div>
+</nav>
+<main class="px-4 py-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-2xl">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>

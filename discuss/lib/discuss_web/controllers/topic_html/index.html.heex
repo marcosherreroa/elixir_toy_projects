@@ -1,0 +1,27 @@
+<h5>Topics</h5>
+<ul class="collection">
+<%= for topic <- @topics do  %>
+  <li class="collection-item">
+    <.link navigate={~p"/topics/#{topic.id}"}>
+      <%= topic.title %>
+    </.link>
+    <%= if @conn.assigns.user && @conn.assigns.user.id == topic.user_id do %>
+    <div class="right">
+      
+      <.link navigate={~p"/topics/#{topic.id}/edit"}>
+        Edit
+      </.link>
+      <.link href={~p"/topics/#{topic.id}"} method="DELETE">
+        Delete
+      </.link>
+    </div>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<div class="fixed-action-btn">
+  <.link navigate={~p"/topics/new"} class="btn-floating btn-large waves-effect waves-light red">
+    <i class="material-icons">add</i>
+  </.link>
+</div>

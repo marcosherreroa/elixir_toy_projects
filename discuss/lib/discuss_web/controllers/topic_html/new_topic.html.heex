@@ -1,0 +1,7 @@
+<.back navigate={~p"/"}>Back</.back>
+<.form :let={f} for={@changeset} action={~p"/topics"}>
+  <div class="form-group">
+    <.input type="text" field={f[:title]} class="form-control" placeholder="Title"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Save Topic</button>
+</.form>

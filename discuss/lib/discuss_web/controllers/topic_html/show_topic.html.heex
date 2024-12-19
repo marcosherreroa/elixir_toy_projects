@@ -1,0 +1,13 @@
+<.back navigate={~p"/"}>Back</.back>
+<h5><%= @topic.title %></h5>
+<div class="input-field">
+  <textarea id="comment__textarea" class="materialize-textarea"></textarea>
+  <button id="comment__button" class="btn">Add Comment</button>
+</div>
+<ul id="comments_list" class="collection">
+</ul>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    window.createSocket(<%= @topic.id %>)
+  })
+</script>
